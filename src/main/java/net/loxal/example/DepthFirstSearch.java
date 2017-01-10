@@ -11,13 +11,6 @@ import java.util.logging.Logger;
 public class DepthFirstSearch {
     public static final Logger LOG = Logger.getGlobal();
 
-    public DepthFirstSearch() {
-    }
-
-    public static void main(String... args) {
-        new DepthFirstSearch();
-    }
-
     Employee closestCommonManager(Employee ceo, Employee one, Employee other) {
         Stack<Employee> onePath = new Stack<>();
         Stack<Employee> otherPath = new Stack<>();
@@ -39,8 +32,8 @@ public class DepthFirstSearch {
             }
 
             while (!Objects.equals(onePath.peek().getId(), otherPath.peek().getId())) {
-                onePath.pop();
-                otherPath.pop();
+                LOG.info("POP from “one” path: " + onePath.pop().getName());
+                LOG.info("POP from “other” path: " + otherPath.pop().getName());
             }
 
             if (onePath.size() > 0) {
@@ -63,14 +56,14 @@ public class DepthFirstSearch {
             }
         }
 
-        path.pop();
+        LOG.info("POP from “stack” path: " + path.pop());
 
         return false;
     }
 
     private void moveUp(Stack<Employee> path, int difference) {
         while (difference > 0 && !path.isEmpty()) {
-            path.pop();
+            LOG.info("POP while moving up: " + path.pop());
             difference--;
         }
     }
