@@ -31,3 +31,6 @@ Implementation of a [Depth-first search algorithm](https://en.wikipedia.org/wiki
                         /
                        Albrecht
 
+
+# Run
+    ./gradlew test
