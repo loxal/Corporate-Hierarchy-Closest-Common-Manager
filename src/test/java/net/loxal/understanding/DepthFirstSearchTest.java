@@ -2,9 +2,8 @@
  * Copyright 2017 Alexander Orlov <alexander.orlov@loxal.net>. All rights reserved.
  */
 
-package net.loxal.example;
+package net.loxal.understanding;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,6 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DepthFirstSearchTest {
     private static final Logger LOG = Logger.getGlobal();
+
     static Employee hans = new Employee(0, "Hans");
     static Employee hildegard = new Employee(1, "Hildegard");
     static Employee anna = new Employee(2, "Anna");
@@ -28,13 +28,10 @@ public class DepthFirstSearchTest {
     static Employee claudia = new Employee(10, "Claudia");
     static Employee igor = new Employee(11, "Igor");
     static Employee tanja = new Employee(12, "Tanja");
-    private final DepthFirstSearch depthFirstSearch = new DepthFirstSearch();
+    private DepthFirstSearch depthFirstSearch;
 
     @BeforeClass
     public static void beforeClass() {
-
-        LOG.info("@BeforeClass");
-
         hans.addReport(ludwig);
         hans.addReport(hildegard);
 
@@ -56,13 +53,7 @@ public class DepthFirstSearchTest {
 
     @Before
     public void setUp() throws Exception {
-        LOG.info("@Before");
-
-        DepthFirstSearch depthFirstSearch = new DepthFirstSearch();
-    }
-
-    @After
-    public void tearDown() throws Exception {
+        depthFirstSearch = new DepthFirstSearch();
     }
 
     @Test
